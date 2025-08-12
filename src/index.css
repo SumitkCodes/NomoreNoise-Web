@@ -1,0 +1,202 @@
+/* NoMoreNoise Design System - Gen-Z Cyberpunk Aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cyberpunk Color Palette */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 5% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Neon Pink Primary */
+    --primary: 320 91% 62%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Cyberpunk Purple Secondary */
+    --secondary: 270 91% 65%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 26%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Neon Accent */
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 91% 71%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 320 91% 62%;
+
+    --radius: 1rem;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(320 91% 62%) 0%, hsl(270 91% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(270 91% 65%) 0%, hsl(240 91% 70%) 100%);
+    --gradient-aurora: linear-gradient(135deg, hsl(320 91% 62%) 0%, hsl(270 91% 65%) 25%, hsl(240 91% 70%) 50%, hsl(180 100% 50%) 75%, hsl(120 91% 60%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(240 8% 6%) 100%);
+
+    /* Glass Effects */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    /* Neon Glow */
+    --neon-glow-pink: 0 0 20px rgba(236, 72, 153, 0.5);
+    --neon-glow-purple: 0 0 20px rgba(147, 51, 234, 0.5);
+    --neon-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.5);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background: hsl(240 10% 3.9%);
+    min-height: 100vh;
+    color: hsl(0 0% 98%);
+  }
+}
+
+@layer components {
+  /* Glassmorphic Card */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    @apply rounded-2xl;
+  }
+
+  /* Neon Button */
+  .neon-button {
+    @apply relative overflow-hidden rounded-xl px-8 py-3 font-semibold transition-all duration-300;
+    background: transparent;
+    border: 2px solid hsl(var(--primary));
+    color: hsl(var(--primary));
+  }
+
+  .neon-button:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--neon-glow-pink);
+    transform: translateY(-2px);
+  }
+
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .neon-button:hover::before {
+    left: 100%;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Aurora Gradient */
+  .aurora-bg {
+    background: var(--gradient-aurora);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-secondary);
+  }
+}
